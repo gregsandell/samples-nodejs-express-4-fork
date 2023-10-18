@@ -15,7 +15,7 @@
     "test:custom-login": "protractor okta-oidc-tck/e2e-tests/custom-login/conf.js",
     "okta-hosted-login-server": "node okta-hosted-login/server.js",
     "test:okta-hosted-login": "protractor okta-oidc-tck/e2e-tests/okta-hosted-login/conf.js",
-    "resource-server": "node resource-server/server.js",
+    "resource-server": "env-cmd -f ./.env node resource-server/server.js",
     "test:resource-server": "jasmine okta-oidc-tck/resource-server/specs/okta-resource-server-spec.js",
     "test": "npm run test:e2e",
     "test:e2e": "npm run test:okta-hosted-login && npm run test:custom-login && npm run test:resource-server",
@@ -38,6 +38,7 @@
     "@okta/oidc-middleware": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "env-cmd": "^10.1.0",
     "express": "^4.18.2",
     "express-session": "^1.17.1",
     "mustache-express": "^1.3.2"
